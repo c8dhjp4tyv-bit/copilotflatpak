@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.c8dhjp4tyv-bit.AICompanionWeb</id>
+  <id>io.github.c8dhjp4tyv-bit.CopilotFlatpak</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <name>AI Companion Web</name>
@@ -13,7 +13,7 @@
     <p>AI Companion Web provides a desktop window for using a compatible web AI companion service with Linux desktop integration.</p>
     <p>This application is an unofficial wrapper and does not include or claim ownership of Microsoft services, trademarks, or brand assets.</p>
   </description>
-  <launchable type="desktop-id">io.github.c8dhjp4tyv-bit.AICompanionWeb.desktop</launchable>
+  <launchable type="desktop-id">io.github.c8dhjp4tyv-bit.CopilotFlatpak.desktop</launchable>
   <categories>
     <category>Network</category>
     <category>Utility</category>
