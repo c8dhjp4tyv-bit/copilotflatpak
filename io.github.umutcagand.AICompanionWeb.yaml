@@ -1,0 +1,58 @@
+id: io.github.umutcagand.AICompanionWeb
+runtime: org.freedesktop.Platform
+runtime-version: "24.08"
+sdk: org.freedesktop.Sdk
+command: ai-companion-web
+
+finish-args:
+  - --share=network
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  - --share=ipc
+  - --filesystem=xdg-download:rw
+  - --env=ELECTRON_OZONE_PLATFORM_HINT=auto
+  - --env=LD_LIBRARY_PATH=/app/ai-companion-web
+
+modules:
+  - name: squashfs-tools
+    buildsystem: simple
+    build-commands:
+      - make -C squashfs-tools GZIP_SUPPORT=1 XZ_SUPPORT=1 LZ4_SUPPORT=0 LZO_SUPPORT=0 LZMA_XZ_SUPPORT=1
+      - install -Dm755 squashfs-tools/unsquashfs /app/bin/unsquashfs
+    sources:
+      - type: git
+        url: https://github.com/plougher/squashfs-tools
+        tag: 4.6.1
+        commit: d8cb82d9840330f9344ec37b992595b7d4ce877c
+
+  - name: ai-companion-web
+    buildsystem: simple
+    build-commands:
+      - /app/bin/unsquashfs -d unpacked copilot-desktop.snap
+      - mkdir -p /app/bin /app/ai-companion-web /app/share/applications /app/share/metainfo /app/share/icons/hicolor/scalable/apps
+      - cp -a unpacked/. /app/ai-companion-web/
+      - chmod +x /app/ai-companion-web/copilot-desktop
+      - install -Dm644 io.github.umutcagand.AICompanionWeb.desktop /app/share/applications/io.github.umutcagand.AICompanionWeb.desktop
+      - install -Dm644 io.github.umutcagand.AICompanionWeb.metainfo.xml /app/share/metainfo/io.github.umutcagand.AICompanionWeb.metainfo.xml
+      - install -Dm644 io.github.umutcagand.AICompanionWeb.svg /app/share/icons/hicolor/scalable/apps/io.github.umutcagand.AICompanionWeb.svg
+      - |
+        cat > /app/bin/ai-companion-web << 'WRAPPER_EOF'
+        #!/bin/sh
+        cd /app/ai-companion-web
+        export LD_LIBRARY_PATH=/app/ai-companion-web${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+        exec /app/ai-companion-web/copilot-desktop --no-sandbox "$@"
+        WRAPPER_EOF
+      - chmod +x /app/bin/ai-companion-web
+
+    sources:
+      - type: file
+        url: https://github.com/c8dhjp4tyv-bit/Copilot-flatpak/releases/download/v62/copilot-desktop_62.snap
+        sha256: 0b0fce10d89a9fbf516368b541adb962350d6ffa028561758acf29cc6f106d9e
+        dest-filename: copilot-desktop.snap
+      - type: file
+        path: io.github.umutcagand.AICompanionWeb.desktop
+      - type: file
+        path: io.github.umutcagand.AICompanionWeb.metainfo.xml
+      - type: file
+        path: io.github.umutcagand.AICompanionWeb.svg
