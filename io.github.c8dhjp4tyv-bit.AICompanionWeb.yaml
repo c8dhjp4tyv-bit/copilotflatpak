@@ -1,4 +1,4 @@
-id: io.github.umutcagand.AICompanionWeb
+id: io.github.c8dhjp4tyv-bit.AICompanionWeb
 runtime: org.freedesktop.Platform
 runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
@@ -33,9 +33,9 @@ modules:
       - mkdir -p /app/bin /app/ai-companion-web /app/share/applications /app/share/metainfo /app/share/icons/hicolor/scalable/apps
       - cp -a unpacked/. /app/ai-companion-web/
       - chmod +x /app/ai-companion-web/copilot-desktop
-      - install -Dm644 io.github.umutcagand.AICompanionWeb.desktop /app/share/applications/io.github.umutcagand.AICompanionWeb.desktop
-      - install -Dm644 io.github.umutcagand.AICompanionWeb.metainfo.xml /app/share/metainfo/io.github.umutcagand.AICompanionWeb.metainfo.xml
-      - install -Dm644 io.github.umutcagand.AICompanionWeb.svg /app/share/icons/hicolor/scalable/apps/io.github.umutcagand.AICompanionWeb.svg
+      - install -Dm644 io.github.c8dhjp4tyv-bit.AICompanionWeb.desktop /app/share/applications/io.github.c8dhjp4tyv-bit.AICompanionWeb.desktop
+      - install -Dm644 io.github.c8dhjp4tyv-bit.AICompanionWeb.metainfo.xml /app/share/metainfo/io.github.c8dhjp4tyv-bit.AICompanionWeb.metainfo.xml
+      - install -Dm644 io.github.c8dhjp4tyv-bit.AICompanionWeb.svg /app/share/icons/hicolor/scalable/apps/io.github.c8dhjp4tyv-bit.AICompanionWeb.svg
       - |
         cat > /app/bin/ai-companion-web << 'WRAPPER_EOF'
         #!/bin/sh
@@ -51,8 +51,8 @@ modules:
         sha256: 0b0fce10d89a9fbf516368b541adb962350d6ffa028561758acf29cc6f106d9e
         dest-filename: copilot-desktop.snap
       - type: file
-        path: io.github.umutcagand.AICompanionWeb.desktop
+        path: io.github.c8dhjp4tyv-bit.AICompanionWeb.desktop
       - type: file
-        path: io.github.umutcagand.AICompanionWeb.metainfo.xml
+        path: io.github.c8dhjp4tyv-bit.AICompanionWeb.metainfo.xml
       - type: file
-        path: io.github.umutcagand.AICompanionWeb.svg
+        path: io.github.c8dhjp4tyv-bit.AICompanionWeb.svg
