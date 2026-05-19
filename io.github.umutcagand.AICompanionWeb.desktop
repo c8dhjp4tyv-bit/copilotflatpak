@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=AI Companion Web
+Comment=Unofficial desktop wrapper for a web AI companion service
+Exec=ai-companion-web %U
+Icon=io.github.umutcagand.AICompanionWeb
+Categories=Network;Utility;
+StartupNotify=true
+Terminal=false

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.umutcagand.AICompanionWeb</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>AI Companion Web</name>
+  <summary>Unofficial desktop wrapper for a web AI companion service</summary>
+  <developer id="io.github.umutcagand">
+    <name>umutcagand</name>
+  </developer>
+  <description>
+    <p>This is a community package and is not officially supported by Microsoft.</p>
+    <p>AI Companion Web provides a desktop window for using a compatible web AI companion service with Linux desktop integration.</p>
+    <p>This application is an unofficial wrapper and does not include or claim ownership of Microsoft services, trademarks, or brand assets.</p>
+  </description>
+  <launchable type="desktop-id">io.github.umutcagand.AICompanionWeb.desktop</launchable>
+  <categories>
+    <category>Network</category>
+    <category>Utility</category>
+  </categories>
+  <url type="homepage">https://github.com/umutcagand/ai-companion-web-flatpak</url>
+  <url type="bugtracker">https://github.com/umutcagand/ai-companion-web-flatpak/issues</url>
+  <provides>
+    <binary>ai-companion-web</binary>
+  </provides>
+  <releases>
+    <release version="0.1.0" date="2026-05-19" />
+  </releases>
+  <content_rating type="oars-1.1" />
+</component>
